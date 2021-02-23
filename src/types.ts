@@ -31,4 +31,5 @@ export interface Pa11yOptions {
   level: string
   standard: string
   rules: string[]
+  runners: string[]
 }

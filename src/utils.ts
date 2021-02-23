@@ -1,7 +1,7 @@
 import { readdir } from 'fs-extra'
 import { basename, join } from 'path'
 import puppeteer, { Browser, Page } from 'puppeteer'
-import { ADDITIONAL_RULES, SNAPSHOTS_DIRECTORY, STANDARD } from './config'
+import { ADDITIONAL_RULES, PUPPETEER_EXECUTABLE_PATH, SNAPSHOTS_DIRECTORY, STANDARD } from './config'
 import { Pa11yOptions } from './types'
 
 export async function readSnapshots(): Promise<string[]> {
@@ -11,7 +11,7 @@ export async function readSnapshots(): Promise<string[]> {
 export function prepareBrowser(): Promise<Browser> {
   return puppeteer.launch({
     headless: true,
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+    executablePath: PUPPETEER_EXECUTABLE_PATH,
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--headless', '--disable-gpu', '--window-size=1280,800']
   })
 }
@@ -24,7 +24,11 @@ export function generatePa11yOptions(browser: Browser, page: Page): Pa11yOptions
     includeWarnings: false,
     level: 'error',
     standard: STANDARD,
-    rules: ADDITIONAL_RULES
+    rules: ADDITIONAL_RULES,
+    runners: [
+      'axe',
+      'htmlcs'
+    ]
   }
 }
 

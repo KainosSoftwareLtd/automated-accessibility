@@ -4,6 +4,10 @@ A HTML-focussed Automated Accessibility Testing framework that leverages [Pa11y]
 
 The framework is used to scan locally saved HTML files, referred to as **snapshots**.
 
+Pa11y leverages the following test runners to verify the HTML:
+* [aXe-core](https://www.axe-core.org/)
+* [HTML CodeSniffer](http://squizlabs.github.com/HTML_CodeSniffer/)
+
 This framework can be ran locally or embedded into CI Pipelines.
 
 **Note that this framework focusses on HTML structure only. Visual and navigation issues will not be detected.**
