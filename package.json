@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
-    "@types/archiver": "^5.1.0",
+    "@types/archiver": "^5.3.0",
     "@types/fs-extra": "^9.0.7",
     "@types/node": "^14.14.28",
     "rimraf": "^3.0.2",
