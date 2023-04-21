@@ -1,4 +1,4 @@
-FROM node:15.8.0-alpine as build-base
+FROM node:20.0.0-alpine as build-base
 
 WORKDIR /build
 
@@ -17,7 +17,7 @@ RUN  npm install
 COPY . ./
 RUN npm run build
 
-FROM node:15.8.0-alpine as runtime
+FROM node:20.0.0-alpine as runtime
 
 WORKDIR /app
 
